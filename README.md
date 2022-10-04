@@ -1,10 +1,14 @@
-![image](https://user-images.githubusercontent.com/78476635/193900501-c040fd1c-0d9c-4a91-bfe5-e8c9d8283f5d.png)
-
 # TASK APP
+
+![image](https://user-images.githubusercontent.com/78476635/193900501-c040fd1c-0d9c-4a91-bfe5-e8c9d8283f5d.png)
 
 ## Project Setup
 
 This is going to be an app to organize tickets. If you are a freelance or a salary person and need to know how much you are spending on restaurants, shop list, transport, materials, etc And stablish total sum for each category and total amount, separating price / tax.
+
+## Week planning
+
+![image](https://user-images.githubusercontent.com/78476635/193904040-e7e2726d-2ac7-401a-8e64-354de1be9b04.png)
 
 ### Iterations: 
 
