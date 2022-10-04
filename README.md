@@ -10,9 +10,9 @@ Stablish ticket base like concept, description, category, amount, tax.
 For example depending on the task color can change, amount will go to a sum number for that category, but keeping in mind a total number.
 
 
-[] Cards for tickets
-[] Classify this cards by category
-[] Sum functions.
+[ ] Cards for tickets
+[ ] Classify this cards by category
+[ ] Sum functions.
 
 ```
 Future plans:
@@ -27,7 +27,7 @@ Future plans:
 
 [x] Create an acount
 
-[ ] Log in
+[x] Log in
 
 [ ] Log out
 
@@ -44,7 +44,7 @@ Tasks:
 
   [ ] Edit task
 
-  [ ] Mark task complete
+  [ ] Mark task/account complete??
 
   [ ] Delete task
 
@@ -52,8 +52,28 @@ Tasks:
 
 ## Dev
 
-User sign in and sign out in user.js
+[ ] Navigation between components.
+[ ] Pass information to parents to children tasks to main dashboard.
+[ ] Apply functions to sum values.
 
+## CSS
+
+[ ] Mock-up
+[ ] CSS Helper
+[ ] Install fonts
+
+
+
+________________________
+
+## 04/10/2022
+Init project, get references & start design mock-up and logical functions.
+
+## 05/10/2022
+Finish mock-up and screens necessary to start working. Separate different iterations. Start like a regular to-do list and add sum funcionality later.
+Code screens & log-out function.
+Start tasks implementations or screens to navigate.
+Choose Bootstrap or other css helper.
 
 
 ```
