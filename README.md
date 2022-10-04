@@ -10,9 +10,9 @@ Stablish ticket base like concept, description, category, amount, tax.
 For example depending on the task color can change, amount will go to a sum number for that category, but keeping in mind a total number.
 
 
-[ ] Cards for tickets
-[ ] Classify this cards by category
-[ ] Sum functions.
+[] Cards for tickets
+[] Classify this cards by category
+[] Sum functions.
 
 ```
 Future plans:
