@@ -10,6 +10,14 @@
   font-family: "Readex Pro", sans-serif;
 }
 
+.hover:hover {
+  color: gray;
+  -webkit-transition: color 150ms linear;
+  -ms-transition: color 150ms linear;
+  transition: color 150ms linear;
+  text-decoration: none;
+}
+
 .navbar {
   display: flex;
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="navbar black">
     <div class="logout-button">
-      <img id="logout-icon" src="../assets/logout.svg" />
+      <img id="logout-icon hover" src="../assets/logout.svg" @click="signOut" />
     </div>
     <div class="logo">
       <h1 class="white logo-txt">ticketz</h1>
@@ -23,9 +23,25 @@ const redirect = useRouter();
 
 // async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
 
-const logout = async () => {
-  const { error } = await supabase.auth.signOut();
-  if (error) throw error;
+// const signOut = async () => {
+//   const { error } = await supabase.auth.signOut();
+//   if (error) throw error;
+// };
+
+const signOut = async () => {
+  try {
+    // calls the user store and send the users info to backend to logIn
+    await supabase.auth.signOut();
+    // redirects user to the homeView
+    redirect.push({ path: "/auth/login" });
+  } catch (error) {
+    // displays error message
+    errorMsg.value = `Error: ${error.message}`;
+    // hides error message
+    setTimeout(() => {
+      errorMsg.value = null;
+    }, 5000);
+  }
 };
 </script>
 
