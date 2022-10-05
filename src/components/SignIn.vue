@@ -1,8 +1,7 @@
 <template>
   <div>Sign In</div>
   <PersonalRouter :route="route" :buttonText="buttonText" />
-  <p>Time to build up the Final Project!</p>
-  <p class="wu-text">Wu Tang Forever</p>
+  <p>Welcome back</p>
   <p v-if="errorMsg" class="">
     {{ errorMsg }}
   </p>
@@ -94,10 +93,6 @@ const signIn = async () => {
 </script>
 
 <style>
-.wu-text {
-  color: black;
-}
-
 .form {
   display: flex;
   flex-direction: column;
