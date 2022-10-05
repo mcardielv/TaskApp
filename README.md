@@ -1,67 +1,87 @@
-# final-boiler-plate
+# TASK APP
 
-This template should help get you started developing the final project running on Vue 3 with the composition API, Pinia as a state management tool, vue router, vite and lastly Supabase running on the backend.
-
-This is meant as an advanced starter ready to plug in your supabase variables and run directly on a local server already connected to your Supabase instance. 
-
-You are given some functions to see how the supabase ecosystem works with Vue and more specifically, pinia as a state management tool.
-
-You can add any CSS framework of your liking like tailwindCSS, Bootstrap, MaterialUI or many of the cool libaries that exist in the web. 
-
-## Important
-This app is not setUp to be deployed to a production environment like vercel or netlify. 
-
+![image](https://user-images.githubusercontent.com/78476635/193900501-c040fd1c-0d9c-4a91-bfe5-e8c9d8283f5d.png)
 
 ## Project Setup
 
-```sh
-npm install
+This is going to be an app to organize tickets. If you are a freelance or a salary person and need to know how much you are spending on restaurants, shop list, transport, materials, etc And stablish total sum for each category and total amount, separating price / tax.
+
+## Week planning
+
+![image](https://user-images.githubusercontent.com/78476635/193904040-e7e2726d-2ac7-401a-8e64-354de1be9b04.png)
+
+### Iterations: 
+
+Stablish ticket base like concept, description, category, amount, tax.
+For example depending on the task color can change, amount will go to a sum number for that category, but keeping in mind a total number.
+
+
+[ ] Cards for tickets
+[ ] Classify this cards by category
+[ ] Sum functions.
+
+```
+Future plans:
+- Create different progressive accounts for different projects (for the moment 1 account in iteration 1).
+- Introducing regressive accounts like I have this total amount to spend, and negative count in order to check balance.
 ```
 
-## Set Up your Environment Variables from Supabase located at the root folder of the project
+## Project Setup
 
-```sh
-VITE_SUPABASE_URL
-VITE_SUPABASE_ANON_KEY 
+
+## Features
+
+[x] Create an acount
+
+[x] Log in
+
+[ ] Log out
+
+[ ] Dashboard -> Tasks by category + Sum Overview
+
+Tasks:
+
+  [ ] Add new task
+      Title
+      Description
+      Category
+      Amount
+      Tax amount
+
+  [ ] Edit task
+
+  [ ] Mark task/account complete??
+
+  [ ] Delete task
+
+
+
+## Dev
+
+[ ] Navigation between components.
+[ ] Pass information to parents to children tasks to main dashboard.
+[ ] Apply functions to sum values.
+
+## CSS
+
+[ ] Mock-up
+[ ] CSS Helper
+[ ] Install fonts
+
+
+
+________________________
+
+## 04/10/2022
+Init project, get references & start design mock-up and logical functions.
+
+## 05/10/2022
+Finish mock-up and screens necessary to start working. Separate different iterations. Start like a regular to-do list and add sum funcionality later.
+Code screens & log-out function.
+Start tasks implementations or screens to navigate.
+Choose Bootstrap or other css helper.
+
+
 ```
-#### Once you have added your environment variables, head to your .gitIgnore file located at the root folder and uncomment the .env file naming to avoid sharing any private access keys to your database
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
+Develop wip: www.miquelcardiel.xyz
 ```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Good Music is always key!
-
-```sh
-Wu Tang Clan
-A tribe called quest
-Kendrick Lamar
-Outkast
-Dr. Dre
-N.W.A
-De La Soul 
-Ms. Lauryn Hill
-J. Cole 
-Guts
-Naughty By Nature
-People under the stairs
-Nujabes
-NAS
-KRS-One
-The Pharcyde
-Jurassic 5
-Gang starr
-Jay Z
-Mobb Depp
-Common
-Lil Supa
-```
-[Hip Hop Spotify Playlist](https://open.spotify.com/playlist/4vKftyhS1gQovakehVcq1u?si=a7a119382dfe40da)
