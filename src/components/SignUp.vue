@@ -1,43 +1,45 @@
 <template>
-  <div>Sign Up</div>
-  <PersonalRouter :route="route" :buttonText="buttonText" />
-  <p>Good Music, Patience and a lot effort</p>
-  <p>Keep calm and code on!</p>
+  <div class="signin-login">SIGN UP</div>
+  <hr />
+  <p class="welcome">Create your new account!</p>
 
   <form @submit.prevent="signUp">
+    <label class="labelTag" for="">Email</label>
     <div class="">
-      <label class="" for="">Email</label>
       <input
-        class=""
+        class="inputTag"
         type="email"
-        placeholder="dave@wuTangfinancial.com"
+        placeholder="name@email.com"
         v-model="email"
         id="email"
       />
     </div>
+    <hr />
+    <label class="labelTag" for="">Password</label>
     <div class="">
-      <label class="" for="">Password</label>
       <input
-        class=""
+        class="inputTag"
         type="password"
         placeholder="************"
         v-model="password"
         id="password"
       />
     </div>
+
+    <label class="labelTag" for="">Confirm Password</label>
     <div class="">
-      <label class="" for="">Confirm Password</label>
       <input
-        class=""
+        class="inputTag"
         type="password"
         placeholder="************"
         v-model="confirmPassword"
         id="confirmPassword"
       />
     </div>
-    <button class="" type="submit">Sign Up</button>
-    <p class="">
-      <span class="">Have an account? </span>
+    <button class="button" type="submit">SIGN UP</button>
+    <p class="welcome">
+      <span class="signin-login">Have an account? </span>
+      <PersonalRouter :route="route" :buttonText="buttonText" />
     </p>
   </form>
 </template>
@@ -49,7 +51,7 @@ import PersonalRouter from "./PersonalRouter.vue";
 import { useUserStore } from "../stores/user";
 // Route Variables
 const route = "/auth/login";
-const buttonText = "Test the Sign In Route";
+const buttonText = "Sign In";
 // Input Fields
 const email = ref(null);
 const password = ref(null);

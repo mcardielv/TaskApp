@@ -1,6 +1,6 @@
 <template>
   <div class="navbar black">
-    <div class="logout-button">
+    <div class="logout-button" v-show="(route = !(auth / login))">
       <img id="logout-icon hover" src="../assets/logout.svg" @click="signOut" />
     </div>
     <div class="logo">
@@ -22,11 +22,6 @@ const redirect = useRouter();
 // constant that saves the user email and cleans out the @client from the user
 
 // async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
-
-// const signOut = async () => {
-//   const { error } = await supabase.auth.signOut();
-//   if (error) throw error;
-// };
 
 const signOut = async () => {
   try {

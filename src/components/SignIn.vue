@@ -1,34 +1,35 @@
 <template>
-  <div>Sign In</div>
-  <PersonalRouter :route="route" :buttonText="buttonText" />
-  <p>Welcome back</p>
+  <div class="signin-login">SIGN IN</div>
+  <hr />
+  <p class="welcome">Welcome back!</p>
+
   <p v-if="errorMsg" class="">
     {{ errorMsg }}
   </p>
   <form @submit.prevent="signIn">
+    <label class="labelTag" for="">Email</label>
     <div class="">
-      <label class="" for="">Email</label>
       <input
-        class=""
+        class="inputTag"
         type="email"
-        placeholder="dave@wuTangfinancial.com"
+        placeholder="name@email.com"
         v-model="email"
         id="email"
       />
     </div>
-    <div class="mb-4">
-      <label class="" for="">Password</label>
-
+    <hr />
+    <label class="labelTag" for="">Password</label>
+    <div class="">
       <div class="">
         <input
-          class=""
+          class="inputTag"
           :type="passwordFieldType"
           onpaste="return false"
           placeholder="************"
           v-model="password"
           id="password"
         />
-        <span class="">
+        <span class="inputTag">
           <EyeIcon
             :class="[passwordFieldIcon]"
             @click.prevent="hidePassword = !hidePassword"
@@ -37,8 +38,8 @@
       </div>
     </div>
 
-    <button class="" type="submit">Sign In</button>
-    <p class="">
+    <button class="button" type="submit">SIGN IN</button>
+    <p class="welcome">
       <span class="">Don’t have an account? </span>
 
       <PersonalRouter :route="route" :buttonText="buttonText" />
@@ -56,7 +57,7 @@ import { storeToRefs } from "pinia";
 
 // Route Variables
 const route = "/auth/sign-up";
-const buttonText = "Test the Sign Up Route";
+const buttonText = "Sign Up";
 
 // Input Fields
 const email = ref("");
@@ -92,24 +93,4 @@ const signIn = async () => {
 };
 </script>
 
-<style>
-.form {
-  display: flex;
-  flex-direction: column;
-  margin: 1rem 0;
-}
-.input {
-  color: black;
-  margin-bottom: 1rem;
-}
-.button {
-  background-color: #4caf50; /* Green */
-  border: none;
-  color: white;
-  padding: 10px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
-</style>
+<style></style>

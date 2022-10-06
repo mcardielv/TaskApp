@@ -11,7 +11,7 @@
 }
 
 .hover:hover {
-  color: gray;
+  color: black;
   -webkit-transition: color 150ms linear;
   -ms-transition: color 150ms linear;
   transition: color 150ms linear;
@@ -26,6 +26,7 @@
   background-color: black;
 }
 .logout-button {
+  position: absolute;
   align-self: center;
   width: 25px;
   padding-left: 15px;
@@ -42,4 +43,67 @@ h1 {
   margin-right: auto;
   padding: 15px;
   align-self: center;
+}
+
+.labelTag {
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;
+  font-size: 18px;
+}
+.inputTag {
+  padding-left: 15px;
+  padding-bottom: 20px;
+  border: none;
+  font-size: 18px;
+}
+
+.signin-login {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.welcome {
+  align-self: center;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+hr {
+  height: 1.2px;
+  background-color: black;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  align-self: center;
+  text-align: center;
+  background-color: black;
+  padding: 15px 25px 15px 25px;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  color: white;
+  font-size: 15px;
+}
+.button:active {
+  background-color: gray;
+}
+
+a {
+  text-decoration: none;
+  color: gray;
+  transition: 0.4s;
+}
+
+.input {
+  margin-left: 15px;
 }

@@ -1,9 +1,11 @@
 <template>
   <Nav />
+  <Yellow />
 </template>
 
 <script setup>
 import Nav from "../components/Nav.vue";
+import Yellow from "../components/Yellow.vue";
 </script>
 
 <style></style>

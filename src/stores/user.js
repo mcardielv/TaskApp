@@ -20,6 +20,21 @@ export const useUserStore = defineStore("user", {
         console.log(this.user);
       }
     },
+    async signOut() {
+      try {
+        // calls the user store and send the users info to backend to logIn
+        await supabase.auth.signOut();
+        // redirects user to the homeView
+        redirect.push({ path: "/auth/login" });
+      } catch (error) {
+        // displays error message
+        errorMsg.value = `Error: ${error.message}`;
+        // hides error message
+        setTimeout(() => {
+          errorMsg.value = null;
+        }, 5000);
+      }
+    },
     async signUp(email, password) {
       const { user, error } = await supabase.auth.signUp({
         email: email,
