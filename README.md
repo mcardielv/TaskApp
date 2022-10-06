@@ -61,6 +61,7 @@ Tasks:
 [ ] Navigation between components.
 [ ] Pass information to parents to children tasks to main dashboard.
 [ ] Apply functions to sum values.
+[ ] Remove button logout from auth pages (ask in general how to show/hide elements depending route for same component)
 
 ## CSS
 
