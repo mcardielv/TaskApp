@@ -35,7 +35,7 @@ Future plans:
 
 [x] Log in
 
-[ ] Log out
+[x] Log out
 
 [ ] Dashboard -> Tasks by category + Sum Overview
 
@@ -64,9 +64,9 @@ Tasks:
 
 ## CSS
 
-[ ] Mock-up
-[ ] CSS Helper
-[ ] Install fonts
+[x] Mock-up
+[x] CSS Helper
+[x] Install fonts
 
 
 
@@ -81,6 +81,9 @@ Code screens & log-out function.
 Start tasks implementations or screens to navigate.
 Choose Bootstrap or other css helper.
 
+## 06/10/2022
+
+Separate different screens, new task, task iteration loop, finish style of everything already complete.
 
 ```
 Develop wip: www.miquelcardiel.xyz
