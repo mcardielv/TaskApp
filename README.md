@@ -52,7 +52,7 @@ Tasks:
 
   [ ] Mark task/account complete??
 
-  [ ] Delete task
+  [x] Delete task
 
 
 
@@ -85,6 +85,12 @@ Choose Bootstrap or other css helper.
 ## 06/10/2022
 
 Separate different screens, new task, task iteration loop, finish style of everything already complete.
+
+## 07/10/2022
+
+Functions to: Create new task, Delete, Update and "Edit"?
+
+
 
 ```
 Develop wip: www.miquelcardiel.xyz
