@@ -1,15 +1,17 @@
 <template>
   <Nav />
   <!-- <Yellow /> -->
-  <NewTask @emitAddTask="addTask" />
+
   <TaskItem
-    class="color"
+    class="taskitem"
     v-for="myTask in useTasks.tasks"
     :key="myTask"
     :task="myTask"
     @deleteChild="deleteFather"
     @completeChild="completeFather"
   />
+  <NewTask @childNewTask="addTask" />
+  <Footer />
 </template>
 
 <script setup>
@@ -19,6 +21,7 @@ import { ref, onMounted } from "vue";
 import { useTaskStore } from "../stores/task";
 import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
+import Footer from "../components/Footer.vue";
 
 const useTasks = useTaskStore();
 
@@ -43,11 +46,7 @@ async function completeFather(taskId) {
 }
 </script>
 
-<style>
-.color {
-  background-color: blue;
-}
-</style>
+<style></style>
 
 <!-- 
 **Hints**
