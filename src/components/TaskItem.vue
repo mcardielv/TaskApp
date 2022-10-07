@@ -1,21 +1,41 @@
 <template>
   <div class="taskItem">
     <li>
-      <b>{{ taskData.title }} </b><br />
-      <i> {{ taskData.description }}</i
-      ><br />
-      <button class="green_btn">DONE</button
-      ><button class="red_btn">X-Delete</button>
+      <h1>{{ task.title }}</h1>
+      <br />
+      <p>{{ task.description }}</p>
+      <br />
+      <p>{{ task.is_complete }}</p>
+      <br />
+      <button @click="completeTask" class="button">Paid</button>
+      <button @click="deleteTask" class="button">Delete</button>
     </li>
   </div>
 </template>
 
 <script setup>
-// const emit = defineEmits([
-//   ENTER-EMITS-HERE
-// ])
+import { ref } from "vue";
 
-const props = defineProps(["taskData"]);
+const props = defineProps(["task"]);
+const emits = defineEmits(["deleteChild", "completeChild"]);
+
+function deleteTask() {
+  emits("deleteChild", props.task.id);
+}
+
+// function editTask(){
+//   const myValues ={
+//     id_props.task.id,
+//     newTitle:
+//     newDescription:
+//   }
+//   emits("elnombred e tu emit", myValues)
+//   }
+// }
+
+function completeTask() {
+  emits("completeChild", props.task.id);
+}
 </script>
 
 <style></style>

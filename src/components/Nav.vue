@@ -1,6 +1,6 @@
 <template>
   <div class="navbar black">
-    <div class="logout-button" v-show="(route = !(auth / login))">
+    <div class="logout-button" v-if="(route = !(auth / login))">
       <img id="logout-icon hover" src="../assets/logout.svg" @click="signOut" />
     </div>
     <div class="logo">

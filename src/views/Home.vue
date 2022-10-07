@@ -1,14 +1,53 @@
 <template>
   <Nav />
-  <Yellow />
+  <!-- <Yellow /> -->
+  <NewTask @emitAddTask="addTask" />
+  <TaskItem
+    class="color"
+    v-for="myTask in useTasks.tasks"
+    :key="myTask"
+    :task="myTask"
+    @deleteChild="deleteFather"
+    @completeChild="completeFather"
+  />
 </template>
 
 <script setup>
 import Nav from "../components/Nav.vue";
 import Yellow from "../components/Yellow.vue";
+import { ref, onMounted } from "vue";
+import { useTaskStore } from "../stores/task";
+import NewTask from "../components/NewTask.vue";
+import TaskItem from "../components/TaskItem.vue";
+
+const useTasks = useTaskStore();
+
+onMounted(() => {
+  useTasks.fetchTasks();
+  console.log(useTasks.fetchTasks());
+});
+
+async function addTask(title, description) {
+  await useTasks.addTask(title, description);
+  useTasks.fetchTasks();
+}
+
+async function deleteFather(taskId) {
+  await useTasks.deleteTask(taskId);
+  useTasks.fetchTasks();
+}
+
+async function completeFather(taskId) {
+  await useTasks.completeTask(taskId);
+  useTasks.fetchTasks();
+}
 </script>
 
-<style></style>
+<style>
+.color {
+  background-color: blue;
+}
+</style>
 
 <!-- 
 **Hints**

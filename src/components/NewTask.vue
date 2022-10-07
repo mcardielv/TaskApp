@@ -1,22 +1,22 @@
 <template>
   <div>
-    <h2>Create task</h2>
     <br />
     <input
       v-model="taskTitle"
       type="text"
       id="newTaskTitle"
       placeholder="Title"
-    /><br /><br />
+    />
 
     <input
       v-model="taskDesc"
       type="text"
       id="newTaskDesc"
       placeholder="Description"
-    /><br /><br />
+    />
 
     <button @click.prevent="uploadTask">Create</button>
+    <button @click.prevent="addTask">Create</button>
   </div>
   <div>
     <h3 v-if="errorBool">{{ emptyString }}</h3>
@@ -25,9 +25,9 @@
 
 <script setup>
 import { ref } from "vue";
-import { supabase } from "../supabase";
 import { useTaskStore } from "../stores/task.js";
-
+import { supabase } from "../supabase";
+const useTasks = useTaskStore();
 const emit = defineEmits(["childNewTask"]);
 
 let taskTitle = ref("");
@@ -38,16 +38,19 @@ const emptyString = ref("");
 function uploadTask() {
   if (taskTitle.value === "") {
     errorBool.value = true;
-    emptyString.value = "Title is required.";
+    emptyString.value = "Add something!.";
     setTimeout(() => {
       errorBool.value = false;
     }, 1000);
   } else {
     emit("childNewTask", taskTitle.value, taskDesc.value);
-    taskTitle.value = "";
-    taskDesc.value = "";
     console.log(taskTitle.value);
   }
+}
+
+function addTask() {
+  emit("childNewTask", taskTitle.value, taskDesc.value);
+  console.log(taskTitle.value);
 }
 
 // async function uploadTask() {
