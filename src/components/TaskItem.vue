@@ -1,14 +1,12 @@
 <template>
   <div class="taskItem">
     <li>
-      <h1>{{ task.title }}</h1>
-      <br />
-      <p>{{ task.description }}</p>
-      <br />
-      <p>{{ task.is_complete }}</p>
-      <br />
-      <button @click="completeTask" class="button">Paid</button>
-      <button @click="deleteTask" class="button">Delete</button>
+      <button @click="completeTask" class="button-complete">Paid</button>
+      <button @click="deleteTask" class="button-delete">Delete</button>
+      <button @click="editTask" class="button-edit">Edit</button>
+      <h4>{{ task.title }}</h4>
+      <h5>{{ task.description }}</h5>
+      <h5>€</h5>
     </li>
   </div>
 </template>

@@ -1,20 +1,56 @@
 <template>
   <div>
     <br />
+    <label class="labelTag" for="">Ticket info</label>
     <input
+      class="inputTag"
       v-model="title"
       type="text"
       id="newTaskTitle"
-      placeholder="new ticket"
+      placeholder="items"
     />
-
+    <label class="labelTag" for="">Price</label>
     <input
+      class="inputTag"
       v-model="description"
       type="text"
       id="newTaskDesc"
-      placeholder="Description"
+      placeholder="0,00€"
     />
 
+    <label class="labelTag" for="">Category</label>
+    <input
+      class="pickedTag yellow"
+      v-model="category"
+      type="radio"
+      value="1"
+      id="materials"
+      placeholder=""
+    />
+    <input
+      class="pickedTag blue"
+      v-model="category"
+      type="radio"
+      value="2"
+      id="restaurants"
+      placeholder=""
+    />
+    <input
+      class="pickedTag green"
+      v-model="category"
+      type="radio"
+      value="3"
+      id="supermarket"
+      placeholder=""
+    />
+    <input
+      class="pickedTag orange"
+      v-model="category"
+      type="radio"
+      value="4"
+      id="transports"
+      placeholder=""
+    />
     <button @click.prevent="addTask">+</button>
   </div>
   <div>
@@ -26,6 +62,8 @@
 import { useTaskStore } from "../stores/task.js";
 import { ref } from "vue";
 import { supabase } from "../supabase";
+
+const category = ref("");
 
 // constant to save a variable that define the custom event that will be emitted to the homeView
 const emits = defineEmits(["childNewTask"]);
@@ -41,12 +79,12 @@ const emptyString = ref("");
 function addTask() {
   if (title.value === "" || description.value === "") {
     errorBool.value = true;
-    emptyString.value = "Add something!.";
+    emptyString.value = "Add something!";
     setTimeout(() => {
       errorBool.value = false;
     }, 1000);
   } else {
-    emits("childNewTask", title.value, description.value);
+    emits("childNewTask", title.value, description.value, category.value);
   }
 }
 </script>

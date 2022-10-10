@@ -20,12 +20,8 @@
 
 .navbar {
   display: flex;
-}
-
-#footer {
-  justify-content: center;
-  position: sticky;
-  bottom: 0px;
+  position: static;
+  width: 100%;
 }
 
 .black {
@@ -34,7 +30,8 @@
 .logout-button {
   position: absolute;
   align-self: center;
-  width: 25px;
+  padding-top: 5px;
+  width: 23px;
   padding-left: 15px;
 }
 
@@ -48,6 +45,20 @@ h2 {
   color: white;
   font-size: 18px;
   text-align: center;
+}
+
+h4 {
+  color: black;
+  font-size: 18px;
+  text-align: left;
+  padding-left: 5px;
+  margin-right: auto;
+}
+
+h5 {
+  color: black;
+  font-size: 18px;
+  text-align: right;
 }
 
 .logo {
@@ -85,7 +96,7 @@ h2 {
 }
 
 hr {
-  height: 1.2px;
+  border-color: black;
   background-color: black;
   margin-left: 15px;
   margin-right: 15px;
@@ -106,8 +117,12 @@ form {
   color: white;
   font-size: 15px;
 }
-.button:active {
+.button:active,
+.button:hover {
   background-color: gray;
+  -webkit-transition: background-color 150ms linear;
+  -ms-transition: background-color 150ms linear;
+  transition: background-color 150ms linear;
 }
 
 a {
@@ -118,4 +133,26 @@ a {
 
 .input {
   margin-left: 15px;
+}
+
+li {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 15px 5px 15px;
+}
+
+.yellow {
+  background-color: #fee99c;
+}
+
+.blue {
+  background-color: #9cd4ff;
+}
+
+.green {
+  background-color: #9cffb2;
+}
+
+.orange {
+  background-color: #fc4e12;
 }

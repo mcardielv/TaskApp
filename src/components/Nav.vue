@@ -1,6 +1,7 @@
 <template>
   <div class="navbar black">
-    <div class="logout-button" v-if="(route = !(auth / login))">
+    <div class="logout-button" v-if="routePath !== '/'"></div>
+    <div class="logout-button" v-else>
       <img id="logout-icon hover" src="../assets/logout.svg" @click="signOut" />
     </div>
     <div class="logo">
@@ -12,6 +13,7 @@
 <script setup>
 import { useRouter } from "vue-router";
 import { supabase } from "../supabase";
+import { ref } from "vue";
 //constant to save a variable that will hold the use router method
 const redirect = useRouter();
 
@@ -38,6 +40,9 @@ const signOut = async () => {
     }, 5000);
   }
 };
+
+const routePath = ref(useRouter().currentRoute.value.path);
+console.log(useRouter().currentRoute.value.path);
 </script>
 
 <style></style>

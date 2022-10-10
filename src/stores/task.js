@@ -11,12 +11,12 @@ export const useTaskStore = defineStore("tasks", () => {
     const { data: supaTasks } = await supabase
       .from("tasks")
       .select("*")
-      .order("id", { ascending: false }); //change true to mount in order
+      .order("id", { ascending: true }); //change true to mount in order
     tasks.value = supaTasks;
     return tasks.value;
   }
   // New code
-  async function addTask(title, description) {
+  async function addTask(title, description, category) {
     console.log(useUserStore().user.id); // call user.js to point specific user uuid at supabase.
     const { data, error } = await supabase.from("tasks").insert([
       {
@@ -24,6 +24,7 @@ export const useTaskStore = defineStore("tasks", () => {
         title: title,
         is_complete: false,
         description: description,
+        category: category,
       },
     ]);
   }
