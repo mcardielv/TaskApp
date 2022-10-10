@@ -90,7 +90,14 @@ function addTask() {
 </script>
 
 <style>
-li {
+/* li {
   list-style-type: none;
+} */
+
+#materials {
+  width: 40px;
+  height: 40px;
+  margin: 20px;
+  background-color: #fee99c;
 }
 </style>
