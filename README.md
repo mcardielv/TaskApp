@@ -16,7 +16,7 @@ Stablish ticket base like concept, description, category, amount, tax.
 For example depending on the task color can change, amount will go to a sum number for that category, but keeping in mind a total number.
 
 
-[ ] Cards for tickets
+[x] Cards for tickets
 [ ] Classify this cards by category
 [ ] Sum functions.
 
@@ -58,10 +58,10 @@ Tasks:
 
 ## Dev
 
-[ ] Navigation between components.
-[ ] Pass information to parents to children tasks to main dashboard.
+[x] Navigation between components.
+[x] Pass information to parents to children tasks to main dashboard.
 [ ] Apply functions to sum values.
-[ ] Remove button logout from auth pages (ask in general how to show/hide elements depending route for same component)
+[x] Remove button logout from auth pages
 
 ## CSS
 
@@ -90,7 +90,11 @@ Separate different screens, new task, task iteration loop, finish style of every
 
 Functions to: Create new task, Delete, Update and "Edit"?
 
+## 10/10/2022
 
+Edit task, v-if/ depending route
+Add new column supabase Category, and change description to Price.
+In New task add Separate arrays in different categories (probably finish 11th).
 
 ```
 Develop wip: www.miquelcardiel.xyz
