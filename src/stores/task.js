@@ -39,8 +39,21 @@ export const useTaskStore = defineStore("tasks", () => {
   async function completeTask(id) {
     const { data, error } = await supabase
       .from("tasks")
-      .update({ is_complete: !this.is_complete })
+      .update({ is_complete: true })
       .match({ id: id });
   }
-  return { tasks, fetchTasks, addTask, deleteTask, completeTask };
+  async function uncompleteTask(id) {
+    const { data, error } = await supabase
+      .from("tasks")
+      .update({ is_complete: false })
+      .match({ id: id });
+  }
+  return {
+    tasks,
+    fetchTasks,
+    addTask,
+    deleteTask,
+    completeTask,
+    uncompleteTask,
+  };
 });

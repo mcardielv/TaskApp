@@ -1,12 +1,39 @@
 <template>
-  <div class="taskItem">
+  <div
+    class="taskItem"
+    :class="props.task.is_complete ? 'completed' : 'taskItem'"
+  >
     <li>
-      <button @click="completeTask" class="button-complete">Paid</button>
-      <button @click="deleteTask" class="button-delete">Delete</button>
-      <button @click="editTask" class="button-edit">Edit</button>
+      <img src="../assets/cross.svg" @click="deleteTask" id="button-delete" />
+      <!-- <img
+        src="../assets/check.svg"
+        :src="
+          props.task.is_complete
+            ? '../assets/return.svg'
+            : '../assets/check.svg'
+        "
+        @click="completeTask"
+        id="button-complete"
+      /> -->
+      <img
+        v-if="!props.task.is_complete"
+        src="../assets/check.svg"
+        @click="completeTask"
+        id="button-complete"
+      />
+      <img
+        v-else
+        src="../assets/return.svg"
+        @click="uncompleteTask"
+        id="button-uncomplete"
+      />
       <h4>{{ task.title }}</h4>
+      <h4>{{ task.is_complete }}</h4>
+
       <h5>{{ task.description }}</h5>
       <h5>€</h5>
+
+      <img src="../assets/edit.svg" @click="editTask" id="button-edit" />
     </li>
   </div>
 </template>
@@ -20,7 +47,7 @@ const emits = defineEmits(["deleteChild", "completeChild"]);
 function deleteTask() {
   emits("deleteChild", props.task.id);
 }
-
+console.log(props.task.is_complete);
 // function editTask(){
 //   const myValues ={
 //     id_props.task.id,
@@ -34,9 +61,37 @@ function deleteTask() {
 function completeTask() {
   emits("completeChild", props.task.id);
 }
+function uncompleteTask() {
+  emits("uncompleteChild", props.task.id);
+}
+console.log(props);
 </script>
 
-<style></style>
+<style>
+#button-complete,
+#button-uncomplete,
+#button-delete {
+  width: 20px;
+  padding-right: 10px;
+  align-self: flex-start;
+  padding-top: 3px;
+  padding-bottom: 5px;
+}
+#button-complete {
+  width: 28px;
+}
+#button-edit {
+  width: 22px;
+  padding-left: 10px;
+  align-self: flex-start;
+
+  padding-bottom: 5px;
+}
+
+.completed {
+  text-decoration-line: line-through;
+}
+</style>
 
 <!-- 
 **Hints**

@@ -6,10 +6,11 @@
     <TaskItem
       class="materialsArrayData"
       v-for="myTask in useTasks.tasks"
-      :key="myTask"
+      :key="myTask.category[0]"
       :task="myTask"
       @deleteChild="deleteFather"
       @completeChild="completeFather"
+      @uncompleteChild="uncompleteFather"
     />
   </div>
 
@@ -85,6 +86,10 @@ async function deleteFather(taskId) {
 
 async function completeFather(taskId) {
   await useTasks.completeTask(taskId);
+  useTasks.fetchTasks();
+}
+async function uncompleteFather(taskId) {
+  await useTasks.uncompleteTask(taskId);
   useTasks.fetchTasks();
 }
 </script>

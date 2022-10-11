@@ -19,14 +19,19 @@
     />
 
     <label class="labelTag" for="">Category</label>
-    <input
-      class="pickedTag yellow"
-      v-model="category"
-      type="radio"
-      value="1"
-      id="materials"
-      placeholder=""
-    />
+
+    <label class="materials">
+      <input
+        class="pickedTag yellow"
+        v-model="category"
+        type="radio"
+        value="1"
+        id="materials"
+        placeholder=""
+      />
+    </label>
+
+    <label id="restaurants"></label>
     <input
       class="pickedTag blue"
       v-model="category"
@@ -35,6 +40,8 @@
       id="restaurants"
       placeholder=""
     />
+
+    <label id="supermarket"></label>
     <input
       class="pickedTag green"
       v-model="category"
@@ -43,6 +50,8 @@
       id="supermarket"
       placeholder=""
     />
+
+    <label id="transports"></label>
     <input
       class="pickedTag orange"
       v-model="category"
@@ -51,6 +60,7 @@
       id="transports"
       placeholder=""
     />
+
     <button @click.prevent="addTask">+</button>
   </div>
   <div>
@@ -94,7 +104,29 @@ function addTask() {
   list-style-type: none;
 } */
 
-#materials {
+.materials input[type="radio"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+}
+
+.materials label {
+  display: inline-block;
+  background-color: #fee99c;
+  padding: 10px 20px;
+  font-family: sans-serif, Arial;
+  font-size: 16px;
+  border: 2px solid #444;
+  border-radius: 4px;
+}
+
+.materials input[type="radio"]:checked + label {
+  border: 5px;
+  border-color: black;
   width: 40px;
   height: 40px;
   margin: 20px;
