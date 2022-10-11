@@ -5,8 +5,8 @@
     <hr class="separator" />
     <TaskItem
       class="materialsArrayData"
-      v-for="myTask in useTasks.tasks"
-      :key="myTask.category[0]"
+      v-for="(myTask, index) in useTasks.tasks"
+      :key="myTask"
       :task="myTask"
       @deleteChild="deleteFather"
       @completeChild="completeFather"
