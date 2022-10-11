@@ -4,31 +4,20 @@
     :class="props.task.is_complete ? 'completed' : 'taskItem'"
   >
     <li>
-      <img src="../assets/cross.svg" @click="deleteTask" id="button-delete" />
-      <!-- <img
-        src="../assets/check.svg"
-        :src="
-          props.task.is_complete
-            ? '../assets/return.svg'
-            : '../assets/check.svg'
-        "
-        @click="completeTask"
-        id="button-complete"
-      /> -->
+      <img src="../assets/crossf.svg" @click="deleteTask" id="button-delete" />
       <img
         v-if="!props.task.is_complete"
-        src="../assets/check.svg"
+        src="../assets/checkf.svg"
         @click="completeTask"
         id="button-complete"
       />
       <img
         v-else
-        src="../assets/return.svg"
+        src="../assets/returnf.svg"
         @click="uncompleteTask"
         id="button-uncomplete"
       />
       <h4>{{ task.title }}</h4>
-      <h4>{{ task.is_complete }}</h4>
 
       <h5>{{ task.description }}</h5>
       <h5>€</h5>
@@ -68,23 +57,19 @@ console.log(props);
 </script>
 
 <style>
+#button-delete,
 #button-complete,
-#button-uncomplete,
-#button-delete {
-  width: 20px;
-  padding-right: 10px;
+#button-uncomplete {
+  width: 30px;
+  padding-right: 7px;
   align-self: flex-start;
-  padding-top: 3px;
   padding-bottom: 5px;
 }
-#button-complete {
-  width: 28px;
-}
+
 #button-edit {
   width: 22px;
   padding-left: 10px;
   align-self: flex-start;
-
   padding-bottom: 5px;
 }
 
