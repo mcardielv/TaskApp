@@ -96,6 +96,13 @@ Edit task, v-if/ depending route
 Add new column supabase Category, and change description to Price.
 In New task add Separate arrays in different categories (probably finish 11th).
 
+## 11/10/2022
+
+Css fixes (log in / sign up) whe you write mail and password.
+Css categories bullets
+Separate each array in categories (visualization)
+Create edit function & is_active (subrayar ticket)
+
 ```
 Develop wip: www.miquelcardiel.xyz
 ```
