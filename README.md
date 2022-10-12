@@ -109,6 +109,7 @@ Create edit function & is_active (subrayar ticket)
 ## 12/10/2022
 Edit function, buttons to activate/deactivate divs but from other components (is it feasible?).
 Fix Css new task & log in errors + inputs.
+Fix console errors while typing.
 
 ```
 Develop wip: www.miquelcardiel.xyz
