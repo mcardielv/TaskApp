@@ -119,7 +119,7 @@ Vercel wip:
 https://taskapp-flax.vercel.app
 ```
 
-Develop wip:
+Developed by:
 ```
 www.miquelcardiel.xyz
 ```
