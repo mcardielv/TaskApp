@@ -62,6 +62,7 @@ Tasks:
 [x] Pass information to parents to children tasks to main dashboard.
 [ ] Apply functions to sum values.
 [x] Remove button logout from auth pages
+[ ] If task completed, edit and delete not visible.
   
 
 ## CSS
@@ -113,10 +114,13 @@ Fix console errors while typing.
 
 Redirect sign up not working route
 
+
+Vercel wip:
 ```
-Vercel wip: https://taskapp-flax.vercel.app
+https://taskapp-flax.vercel.app
 ```
 
+Developed by:
 ```
-Develop wip: www.miquelcardiel.xyz
+www.miquelcardiel.xyz
 ```
