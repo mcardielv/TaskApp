@@ -17,7 +17,7 @@ For example depending on the task color can change, amount will go to a sum numb
 
 
 [x] Cards for tickets
-[ ] Classify this cards by category
+[x] Classify this cards by category
 [ ] Sum functions.
 
 ```
@@ -41,7 +41,7 @@ Future plans:
 
 Tasks:
 
-  [ ] Add new task
+  [x] Add new task
       Title
       Description
       Category
@@ -50,7 +50,7 @@ Tasks:
 
   [ ] Edit task
 
-  [ ] Mark task/account complete??
+  [x] Mark task/account complete??
 
   [x] Delete task
 
@@ -62,13 +62,16 @@ Tasks:
 [x] Pass information to parents to children tasks to main dashboard.
 [ ] Apply functions to sum values.
 [x] Remove button logout from auth pages
+  
 
 ## CSS
 
 [x] Mock-up
 [x] CSS Helper
 [x] Install fonts
-
+[ ] Inputs LogIn/SignUp css + errors
+[ ] buttons settings (activate/deactivate edit, complete,delete svgs)
+[ ] New task css radio
 
 
 ________________________
@@ -102,6 +105,10 @@ Css fixes (log in / sign up) whe you write mail and password.
 Css categories bullets
 Separate each array in categories (visualization)
 Create edit function & is_active (subrayar ticket)
+
+## 12/10/2022
+Edit function, buttons to activate/deactivate divs but from other components (is it feasible?).
+Fix Css new task & log in errors + inputs.
 
 ```
 Develop wip: www.miquelcardiel.xyz
