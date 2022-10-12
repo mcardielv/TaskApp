@@ -112,6 +112,11 @@ Fix Css new task & log in errors + inputs.
 Fix console errors while typing.
 
 Redirect sign up not working route
+
+```
+Vercel wip: https://taskapp-flax.vercel.app
+```
+
 ```
 Develop wip: www.miquelcardiel.xyz
 ```
