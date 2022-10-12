@@ -3,7 +3,6 @@ import { ref } from "vue";
 import { supabase } from "../supabase";
 import { useUserStore } from "./user";
 
-// export const useTaskStore2 = defineStore(("nombredelatienda") => {la logica como tal});
 export const useTaskStore = defineStore("tasks", () => {
   const tasks = ref([]);
 
@@ -11,7 +10,7 @@ export const useTaskStore = defineStore("tasks", () => {
     const { data: supaTasks } = await supabase
       .from("tasks")
       .select("*")
-      .order("id", { ascending: true }); //change true to mount in order
+      .order("id", { ascending: true }); //changed to true to mount in order
     tasks.value = supaTasks;
     return tasks.value;
   }
@@ -48,6 +47,17 @@ export const useTaskStore = defineStore("tasks", () => {
       .update({ is_complete: false })
       .match({ id: id });
   }
+
+  async function editTask(title, description, id) {
+    const { data, error } = await supabase
+      .from("tasks")
+      .update({
+        title: title,
+        description: description,
+      })
+      .match({ id: id });
+  }
+
   return {
     tasks,
     fetchTasks,
@@ -55,5 +65,6 @@ export const useTaskStore = defineStore("tasks", () => {
     deleteTask,
     completeTask,
     uncompleteTask,
+    editTask,
   };
 });

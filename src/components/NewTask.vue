@@ -104,13 +104,10 @@ function addTask() {
   list-style-type: none;
 } */
 
-.materials input[type="radio"] {
-  /* Add if not using autoprefixer */
+/* .materials input[type="radio"] {
   -webkit-appearance: none;
   appearance: none;
-  /* For iOS < 15 to remove gradient background */
   background-color: #fff;
-  /* Not removed via appearance */
   margin: 0;
 }
 
@@ -131,5 +128,5 @@ function addTask() {
   height: 40px;
   margin: 20px;
   background-color: #fee99c;
-}
+} */
 </style>

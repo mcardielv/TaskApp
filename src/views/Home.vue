@@ -8,9 +8,11 @@
       v-for="(myTask, index) in useTasks.tasks"
       :key="myTask"
       :task="myTask"
+      :index="myTask.category[0]"
       @deleteChild="deleteFather"
       @completeChild="completeFather"
       @uncompleteChild="uncompleteFather"
+      @editChild="editFather"
     />
   </div>
 
@@ -24,6 +26,8 @@
       :task="myTask"
       @deleteChild="deleteFather"
       @completeChild="completeFather"
+      @uncompleteChild="uncompleteFather"
+      @editChild="editFather"
     />
   </div>
 
@@ -37,6 +41,8 @@
       :task="myTask"
       @deleteChild="deleteFather"
       @completeChild="completeFather"
+      @uncompleteChild="uncompleteFather"
+      @editChild="editFather"
     />
   </div>
 
@@ -50,6 +56,8 @@
       :task="myTask"
       @deleteChild="deleteFather"
       @completeChild="completeFather"
+      @uncompleteChild="uncompleteFather"
+      @editChild="editFather"
     />
   </div>
 
@@ -90,6 +98,10 @@ async function completeFather(taskId) {
 }
 async function uncompleteFather(taskId) {
   await useTasks.uncompleteTask(taskId);
+  useTasks.fetchTasks();
+}
+async function editFather(title, description, id) {
+  await useTasks.editTask(title, description, id);
   useTasks.fetchTasks();
 }
 </script>

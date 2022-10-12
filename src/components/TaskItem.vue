@@ -4,25 +4,51 @@
     :class="props.task.is_complete ? 'completed' : 'taskItem'"
   >
     <li>
-      <img src="../assets/crossf.svg" @click="deleteTask" id="button-delete" />
       <img
-        v-if="!props.task.is_complete"
+        src="../assets/crossf.svg"
+        v-if="!toEdit"
+        @click="deleteTask"
+        id="button-delete"
+      />
+      <img
+        v-if="!props.task.is_complete && !toEdit"
         src="../assets/checkf.svg"
         @click="completeTask"
         id="button-complete"
       />
       <img
         v-else
+        v-if="!toEdit"
         src="../assets/returnf.svg"
         @click="uncompleteTask"
         id="button-uncomplete"
       />
-      <h4>{{ task.title }}</h4>
-
-      <h5>{{ task.description }}</h5>
+      <h4 v-if="!toEdit">{{ task.title }}</h4>
+      <h4 v-else>
+        <input class="h4" v-model="newTitle" :placeholder="task.title" />
+      </h4>
+      <h5 v-if="!toEdit">{{ task.description }}</h5>
+      <h5 v-else>
+        <input
+          class="h5"
+          v-model="newDescription"
+          :placeholder="task.description"
+        />
+      </h5>
       <h5>€</h5>
 
-      <img src="../assets/edit.svg" @click="editTask" id="button-edit" />
+      <img
+        src="../assets/edit.svg"
+        v-if="!toEdit"
+        @click="changeParams"
+        id="button-edit"
+      />
+      <img
+        src="../assets/checkf.svg"
+        v-else
+        @click="editTask"
+        id="button-edit"
+      />
     </li>
   </div>
 </template>
@@ -31,21 +57,22 @@
 import { ref } from "vue";
 
 const props = defineProps(["task"]);
-const emits = defineEmits(["deleteChild", "completeChild"]);
+const emits = defineEmits([
+  "deleteChild",
+  "completeChild",
+  "uncompleteChild",
+  "editChild",
+]);
+
+//variables to edit task create a new title, and new description
+const toEdit = ref(false);
+const newTitle = ref("");
+const newDescription = ref("");
 
 function deleteTask() {
   emits("deleteChild", props.task.id);
 }
 console.log(props.task.is_complete);
-// function editTask(){
-//   const myValues ={
-//     id_props.task.id,
-//     newTitle:
-//     newDescription:
-//   }
-//   emits("elnombred e tu emit", myValues)
-//   }
-// }
 
 function completeTask() {
   emits("completeChild", props.task.id);
@@ -53,7 +80,17 @@ function completeTask() {
 function uncompleteTask() {
   emits("uncompleteChild", props.task.id);
 }
-console.log(props);
+
+//function to editTasks adding newTitle and newDescrip divs above to call Update function Supabase
+function editTask() {
+  emits("editChild", newTitle.value, newDescription.value, props.task.id);
+  toEdit.value = false;
+}
+
+//function to bool edit values
+function changeParams() {
+  toEdit.value = true;
+}
 </script>
 
 <style>

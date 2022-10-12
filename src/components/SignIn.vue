@@ -3,7 +3,7 @@
   <hr />
   <p class="welcome">Welcome back!</p>
 
-  <p v-if="errorMsg" class="">
+  <p v-if="errorMsg" class="errorMsg">
     {{ errorMsg }}
   </p>
   <form @submit.prevent="signIn">
@@ -29,7 +29,7 @@
           v-model="password"
           id="password"
         />
-        <span class="inputTag">
+        <span class="">
           <EyeIcon
             :class="[passwordFieldIcon]"
             @click.prevent="hidePassword = !hidePassword"
@@ -93,4 +93,15 @@ const signIn = async () => {
 };
 </script>
 
-<style></style>
+<style>
+.passwordFieldIcon {
+  width: 20px;
+}
+.eyeicon {
+  width: 20px;
+}
+.errorMsg {
+  text-align: center;
+  color: red;
+}
+</style>
