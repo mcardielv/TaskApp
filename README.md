@@ -111,6 +111,7 @@ Edit function, buttons to activate/deactivate divs but from other components (is
 Fix Css new task & log in errors + inputs.
 Fix console errors while typing.
 
+Redirect sign up not working route
 ```
 Develop wip: www.miquelcardiel.xyz
 ```
