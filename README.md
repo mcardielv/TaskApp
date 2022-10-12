@@ -113,10 +113,13 @@ Fix console errors while typing.
 
 Redirect sign up not working route
 
+
+Vercel wip:
 ```
-Vercel wip: https://taskapp-flax.vercel.app
+https://taskapp-flax.vercel.app
 ```
 
+Develop wip:
 ```
-Develop wip: www.miquelcardiel.xyz
+www.miquelcardiel.xyz
 ```
