@@ -1,65 +1,78 @@
 <template>
   <div>
-    <br />
-    <label class="labelTag" for="">Ticket info</label>
-    <input
-      class="inputTag"
-      v-model="title"
-      type="text"
-      id="newTaskTitle"
-      placeholder="items"
-    />
-    <label class="labelTag" for="">Price</label>
-    <input
-      class="inputTag"
-      v-model="description"
-      type="text"
-      id="newTaskDesc"
-      placeholder="0,00€"
-    />
-
-    <label class="labelTag" for="">Category</label>
-
-    <label class="materials">
+    <div class="ticketInfo">
+      <label class="labelTag" for="">Ticket info</label>
       <input
-        class="pickedTag yellow"
-        v-model="category"
-        type="radio"
-        value="1"
-        id="materials"
-        placeholder=""
+        class="inputTag"
+        v-model="title"
+        type="text"
+        id="newTaskTitle"
+        placeholder="Write here"
       />
-    </label>
+    </div>
 
-    <label id="restaurants"></label>
-    <input
-      class="pickedTag blue"
-      v-model="category"
-      type="radio"
-      value="2"
-      id="restaurants"
-      placeholder=""
-    />
+    <hr />
 
-    <label id="supermarket"></label>
-    <input
-      class="pickedTag green"
-      v-model="category"
-      type="radio"
-      value="3"
-      id="supermarket"
-      placeholder=""
-    />
+    <div class="ticketInfo"></div>
+    <label class="labelTag" for="">Price</label>
+    <div>
+      <input
+        class="inputTag"
+        v-model="description"
+        type="text"
+        id="newTaskDesc"
+        placeholder="0,00"
+      />
+      <label class="labelTag-inline" for="">€</label>
+    </div>
 
-    <label id="transports"></label>
-    <input
-      class="pickedTag orange"
-      v-model="category"
-      type="radio"
-      value="4"
-      id="transports"
-      placeholder=""
-    />
+    <hr />
+    <div class="ticketInfo">
+      <label class="labelTag" for="">Category</label>
+      <div class="ticketInfo-category">
+        <label class="materials">
+          <input
+            class="pickedTag yellow"
+            v-model="category"
+            type="radio"
+            value="1"
+            id="materials"
+            placeholder=""
+          />
+        </label>
+
+        <label id="restaurants">
+          <input
+            class="pickedTag blue"
+            v-model="category"
+            type="radio"
+            value="2"
+            id="restaurants"
+            placeholder=""
+          />
+        </label>
+        <label id="supermarket">
+          <input
+            class="pickedTag green"
+            v-model="category"
+            type="radio"
+            value="3"
+            id="supermarket"
+            placeholder=""
+          />
+        </label>
+        <label id="transports">
+          <input
+            class="pickedTag orange"
+            v-model="category"
+            type="radio"
+            value="4"
+            id="transports"
+            placeholder=""
+          />
+        </label>
+      </div>
+    </div>
 
     <button @click.prevent="addTask">+</button>
   </div>
@@ -100,6 +113,20 @@ function addTask() {
 </script>
 
 <style>
+.ticketInfo {
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.ticketInfo-category {
+  display: flex;
+  flex-direction: row;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+}
 /* li {
   list-style-type: none;
 } */

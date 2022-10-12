@@ -72,7 +72,10 @@ const newDescription = ref("");
 function deleteTask() {
   emits("deleteChild", props.task.id);
 }
-console.log(props.task.is_complete);
+// console.log(props.task.is_complete);
+console.log(props.task.category);
+
+// const filteredMaterials = filteredMaterials.map((props) => data.SRCVideo);
 
 function completeTask() {
   emits("completeChild", props.task.id);

@@ -97,6 +97,12 @@ input.h5 {
   padding: 15px;
   align-self: center;
 }
+.ticketInfo {
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
 
 .labelTag {
   padding-left: 15px;
@@ -105,6 +111,10 @@ input.h5 {
   border: none;
   font-size: 18px;
 }
+.labelTag-inline {
+  margin-left: 0;
+}
+
 .inputTag {
   padding-left: 15px;
   padding-bottom: 20px;

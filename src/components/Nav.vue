@@ -7,6 +7,12 @@
     <div class="logo">
       <h1 class="white logo-txt">ticketz</h1>
     </div>
+    <img
+      class="nav-button"
+      src="../assets/edit_white.svg"
+      id="button-edit"
+      @click="editEverything"
+    />
   </div>
 </template>
 
@@ -42,7 +48,16 @@ const signOut = async () => {
 };
 
 const routePath = ref(useRouter().currentRoute.value.path);
-console.log(useRouter().currentRoute.value.path);
 </script>
 
-<style></style>
+<style>
+.nav-button {
+  position: absolute;
+  right: 20px;
+  font-size: 35px;
+  padding-top: 15px;
+  color: white;
+  border-style: none;
+  background-color: transparent;
+}
+</style>

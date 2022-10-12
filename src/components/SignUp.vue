@@ -3,6 +3,12 @@
   <hr />
   <p class="welcome">Create your new account!</p>
 
+  <p v-if="errorMsg" class="errorMsg">
+    {{ errorMsg }}
+  </p>
+  <p v-if="errorMsg2" class="errorMsg">
+    {{ errorMsg2 }}
+  </p>
   <form @submit.prevent="signUp">
     <label class="labelTag" for="">Email</label>
     <div class="">
@@ -57,6 +63,7 @@ const email = ref(null);
 const password = ref(null);
 const confirmPassword = ref(null);
 const errorMsg = ref(null);
+const errorMsg2 = ref(null);
 // Error Message
 // Show hide password variable
 // Show hide confrimPassword variable
@@ -64,6 +71,19 @@ const errorMsg = ref(null);
 const redirect = useRouter();
 // function to SignUp user to supaBase with a timeOut() method for showing the error
 async function signUp() {
+  //first try add existing user error message
+  try {
+    await Supabase.instance.client.auth.signUp(email.value, password.value);
+    error = response.error;
+  } catch (error) {
+    if (error != null) {
+    } else error != null && email.value === null;
+  }
+  errorMsg2.value = "This user email already exists!";
+  setTimeout(() => {
+    errorMsg2.value = null;
+  }, 5000);
+  //second try to enter auth/login once signup completed with same password and confirm pass
   if (password.value === confirmPassword.value) {
     try {
       await useUserStore().signUp(email.value, password.value);
