@@ -62,6 +62,7 @@ Tasks:
 [x] Pass information to parents to children tasks to main dashboard.
 [ ] Apply functions to sum values.
 [x] Remove button logout from auth pages
+[ ] If task completed, edit and delete not visible.
   
 
 ## CSS
