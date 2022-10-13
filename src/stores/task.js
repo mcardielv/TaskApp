@@ -14,6 +14,7 @@ export const useTaskStore = defineStore("tasks", () => {
     tasks.value = supaTasks;
     return tasks.value;
   }
+
   // New code
   async function addTask(title, description, category) {
     // call user.js to point specific user uuid at supabase.

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="ticketInfo">
-      <label class="labelTag" for="">Ticket info</label>
+      <label class="labelTag" for="newTaskTitle">Ticket info</label>
       <input
         class="inputTag"
         v-model="title"
@@ -15,29 +15,35 @@
 
     <div class="ticketInfo"></div>
     <label class="labelTag" for="">Price</label>
-    <div>
+    <div class="labelTagPrice">
       <input
         class="inputTag"
         v-model="description"
         type="text"
         id="newTaskDesc"
-        placeholder="0,00"
+        placeholder="0.00"
       />
-      <label class="labelTag-inline" for="">€</label>
+      <label class="labelTag-inline" for="newTaskDesc">€</label>
     </div>
 
     <hr />
+
     <div class="ticketInfo">
       <label class="labelTag" for="">Category</label>
+
+      <p class="">{{ categoryValue }}</p>
+
       <div class="ticketInfo-category">
-        <label class="materials">
+        <label id="materials">
           <input
+            step="0.01"
             class="pickedTag yellow"
             v-model="category"
             type="radio"
             value="1"
             id="materials"
             placeholder=""
+            @click="categoriesName"
           />
         </label>
 
@@ -61,6 +67,7 @@
             placeholder=""
           />
         </label>
+
         <label id="transports">
           <input
             class="pickedTag orange"
@@ -73,11 +80,23 @@
         </label>
       </div>
     </div>
-
-    <button @click.prevent="addTask">+</button>
   </div>
+
+  <div class="buttons-newtask">
+    <img
+      src="../assets/crossf.svg"
+      @click="resetTask"
+      id="buttons-newtask-input"
+    />
+    <img
+      src="../assets/checkf.svg"
+      @click="addTask"
+      id="buttons-newtask-input"
+    />
+  </div>
+
   <div>
-    <h3 v-if="errorBool">{{ emptyString }}</h3>
+    <h5 class="errorMsg" v-if="errorBool">{{ emptyString }}</h5>
   </div>
 </template>
 
@@ -102,13 +121,36 @@ const emptyString = ref("");
 function addTask() {
   if (title.value === "" || description.value === "") {
     errorBool.value = true;
-    emptyString.value = "Add something!";
+    emptyString.value = "Add Ticket info and Price";
     setTimeout(() => {
       errorBool.value = false;
-    }, 1000);
+    }, 3000);
   } else {
     emits("childNewTask", title.value, description.value, category.value);
   }
+  resetTask();
+}
+
+//function to show category name depend selected radio form
+const categoryValue = ref("");
+
+function categoriesName() {
+  if (category.value === 1) {
+    categoryValue.value = "Materials";
+  } else if (category.value === 2) {
+    categoryValue = "Supermarket";
+  } else if (category.value === 3) {
+    categoryValue = "Restaurants";
+  } else if (category.value === 4) {
+    categoryValue.value = "Transports";
+  }
+}
+
+//function reset task data after decide not to fill or filled with errors
+function resetTask() {
+  title.value = "";
+  description.value = "";
+  category.value = "1";
 }
 </script>
 
@@ -119,41 +161,42 @@ function addTask() {
   padding-top: 15px;
   padding-bottom: 15px;
 }
+.labelTagPrice {
+  margin-bottom: 20px;
+}
 
 .ticketInfo-category {
   display: flex;
   flex-direction: row;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 15px;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
-/* li {
-  list-style-type: none;
-} */
 
-/* .materials input[type="radio"] {
+#materials [type="radio"],
+#restaurants [type="radio"],
+#supermarket [type="radio"],
+#transports [type="radio"] {
   -webkit-appearance: none;
   appearance: none;
-  background-color: #fff;
-  margin: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 50px;
+  height: 50px;
 }
 
-.materials label {
-  display: inline-block;
-  background-color: #fee99c;
-  padding: 10px 20px;
-  font-family: sans-serif, Arial;
-  font-size: 16px;
-  border: 2px solid #444;
-  border-radius: 4px;
+[type="radio"]:checked {
+  outline: 2px solid black;
 }
 
-.materials input[type="radio"]:checked + label {
-  border: 5px;
-  border-color: black;
-  width: 40px;
-  height: 40px;
-  margin: 20px;
-  background-color: #fee99c;
-} */
+.buttons-newtask {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 70px 50px 70px;
+  align-items: center;
+}
+
+#buttons-newtask-input {
+  width: 30px;
+}
 </style>
