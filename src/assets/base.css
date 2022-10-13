@@ -57,7 +57,7 @@ h4 {
   margin-right: auto;
 }
 
-input.h4 {
+.h4 {
   border: none;
   appearance: none;
   -webkit-appearance: none;
@@ -71,6 +71,8 @@ input.h4 {
 .h4:focus,
 .h5:focus {
   /* outline: none; */
+  outline-color: black;
+  background-color: none;
 }
 
 h5 {
@@ -78,7 +80,7 @@ h5 {
   font-size: 18px;
   text-align: right;
 }
-input.h5 {
+.h5 {
   border: none;
   appearance: none;
   -webkit-appearance: none;
@@ -89,6 +91,7 @@ input.h5 {
   padding-left: 5px;
   margin-right: auto;
   margin-left: 0px;
+  max-width: 60px;
 }
 
 .logo {
@@ -105,10 +108,12 @@ input.h5 {
   border: none;
   font-size: 18px;
 }
+
 .labelTag-inline {
   margin-left: 0;
 }
 
+/* finish this one */
 .inputTag {
   padding-left: 15px;
   padding-bottom: 20px;
@@ -163,10 +168,6 @@ a {
   text-decoration: none;
   color: gray;
   transition: 0.4s;
-}
-
-.input {
-  margin-left: 15px;
 }
 
 li {

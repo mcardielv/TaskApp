@@ -1,11 +1,13 @@
 <template>
   <div id="footer" class="navbar black">
-    <h2>TOTAL = 10,45€</h2>
+    <h2>TOTAL = {{ sumValue }}€</h2>
     <button class="footer-button">+</button>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+</script>
 
 <style>
 .footer-button {

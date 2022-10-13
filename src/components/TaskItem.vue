@@ -66,16 +66,12 @@ const emits = defineEmits([
 
 //variables to edit task create a new title, and new description
 const toEdit = ref(false);
-const newTitle = ref("");
-const newDescription = ref("");
+const newTitle = ref(props.task.title);
+const newDescription = ref(props.task.description);
 
 function deleteTask() {
   emits("deleteChild", props.task.id);
 }
-// console.log(props.task.is_complete);
-console.log(props.task.category);
-
-// const filteredMaterials = filteredMaterials.map((props) => data.SRCVideo);
 
 function completeTask() {
   emits("completeChild", props.task.id);
