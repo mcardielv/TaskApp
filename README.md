@@ -37,7 +37,7 @@ Future plans:
 
 [x] Log out
 
-[ ] Dashboard -> Tasks by category + Sum Overview
+[x] Dashboard -> Tasks by category + Sum Overview
 
 Tasks:
 
@@ -48,7 +48,7 @@ Tasks:
       Amount
       Tax amount
 
-  [ ] Edit task
+  [x] Edit task
 
   [x] Mark task/account complete??
 
@@ -62,7 +62,7 @@ Tasks:
 [x] Pass information to parents to children tasks to main dashboard.
 [ ] Apply functions to sum values.
 [x] Remove button logout from auth pages
-[ ] If task completed, edit and delete not visible.
+[x] If task completed, edit and delete not visible.
   
 
 ## CSS
@@ -71,8 +71,8 @@ Tasks:
 [x] CSS Helper
 [x] Install fonts
 [ ] Inputs LogIn/SignUp css + errors
-[ ] buttons settings (activate/deactivate edit, complete,delete svgs)
-[ ] New task css radio
+[x] buttons settings (activate/deactivate edit, complete,delete svgs)
+[x] New task css radio
 
 
 ________________________
