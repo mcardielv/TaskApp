@@ -81,10 +81,10 @@ ________________________
 Init project, get references & start design mock-up and logical functions.
 
 ## 05/10/2022
-Finish mock-up and screens necessary to start working. Separate different iterations. Start like a regular to-do list and add sum funcionality later.
-Code screens & log-out function.
-Start tasks implementations or screens to navigate.
-Choose Bootstrap or other css helper.
+- Finish mock-up and screens necessary to start working. Separate different iterations. Start like a regular to-do list and add sum funcionality later.
+- Code screens & log-out function.
+- Start tasks implementations or screens to navigate.
+- Choose Bootstrap or other css helper.
 
 ## 06/10/2022
 
@@ -96,29 +96,30 @@ Functions to: Create new task, Delete, Update and "Edit"?
 
 ## 10/10/2022
 
-Edit task, v-if/ depending route
-Add new column supabase Category, and change description to Price.
-In New task add Separate arrays in different categories (probably finish 11th).
+- Edit task, v-if/ depending route
+- Add new column supabase Category, and change description to Price.
+- In New task add Separate arrays in different categories (probably finish 11th).
 
 ## 11/10/2022
 
-Css fixes (log in / sign up) whe you write mail and password.
-Css categories bullets
-Separate each array in categories (visualization)
-Create edit function & is_active (subrayar ticket)
+- Css fixes (log in / sign up) whe you write mail and password.
+- Css categories bullets
+- Separate each array in categories (visualization)
+- Create edit function & is_active (subrayar ticket)
 
 ## 12/10/2022
-Edit function, buttons to activate/deactivate divs but from other components (is it feasible?).
-Fix Css new task & log in errors + inputs.
-Fix console errors while typing.
+- Edit function, buttons to activate/deactivate divs but from other components (is it feasible?).
+- Fix Css new task & log in errors + inputs.
+- Fix console errors while typing.
 
 Redirect sign up not working route
 
 ## 13/10/2022
-CSS input form
-Filter category v-fors
-Buttons between components
-Sum function
+- CSS input form
+- Filter category v-fors
+- Buttons between components
+- Sum function
+- Price in form limit decimals .01
 
 
 Vercel wip:
