@@ -53,7 +53,7 @@ const routePath = ref(useRouter().currentRoute.value.path);
 <style>
 .nav-button {
   position: absolute;
-  right: 20px;
+  right: 15px;
   font-size: 35px;
   padding-top: 15px;
   color: white;

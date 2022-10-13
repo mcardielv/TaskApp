@@ -2,10 +2,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&display=swap");
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 * {
   padding: 0;
   margin: 0;
@@ -19,6 +15,13 @@
   transition: color 150ms linear;
   text-decoration: none;
 }
+.logout-button {
+  position: absolute;
+  align-self: center;
+  padding-top: 5px;
+  width: 23px;
+  padding-left: 20px;
+}
 
 .navbar {
   display: flex;
@@ -28,13 +31,6 @@
 
 .black {
   background-color: black;
-}
-.logout-button {
-  position: absolute;
-  align-self: center;
-  padding-top: 5px;
-  width: 23px;
-  padding-left: 15px;
 }
 
 h1 {
@@ -113,9 +109,8 @@ h5 {
   margin-left: 0;
 }
 
-/* finish this one */
 .inputTag {
-  padding-left: 15px;
+  /* padding-left: 15px; */
   padding-bottom: 20px;
   border: none;
   font-size: 18px;

@@ -2,22 +2,24 @@
   <div>
     <div class="ticketInfo">
       <label class="labelTag" for="newTaskTitle">Ticket info:</label>
-      <input
-        class="inputTag"
-        v-model="title"
-        type="text"
-        id="newTaskTitle"
-        placeholder="Write here some ref, invoice number..."
-      />
+      <div class="labelTag">
+        <input
+          class="inputTag"
+          v-model="title"
+          type="text"
+          id="newTaskTitle"
+          placeholder="Write some ref, invoice nº..."
+        />
+      </div>
     </div>
 
     <hr />
 
     <div class="ticketInfo">
       <label class="labelTag" for="">Price:</label>
-      <div class="labelTagPrice">
+      <div class="labelTag">
         <input
-          class="inputTag"
+          class="inputTag price"
           v-model="description"
           type="number"
           id="newTaskDesc"
@@ -44,7 +46,7 @@
             value="1"
             id="materials"
             placeholder=""
-            @click="categoriesName"
+            :@click="categoriesName()"
           />
         </label>
 
@@ -56,7 +58,7 @@
             value="2"
             id="restaurants"
             placeholder=""
-            @click="categoriesName"
+            :@click="categoriesName()"
           />
         </label>
         <label id="supermarket">
@@ -67,7 +69,7 @@
             value="3"
             id="supermarket"
             placeholder=""
-            @click="categoriesName"
+            :@click="categoriesName()"
           />
         </label>
 
@@ -79,7 +81,7 @@
             value="4"
             id="transports"
             placeholder=""
-            @click="categoriesName"
+            :@click="categoriesName()"
           />
         </label>
       </div>
@@ -159,9 +161,9 @@ function categoriesName() {
   } else if (category.value == 2) {
     categoryValue.value = "Restaurants";
   } else if (category.value == 3) {
-    categoryValue.value = "Supermarkets";
+    categoryValue.value = "Supermarket";
   } else if (category.value == 4) {
-    categoryValue.value = "Transports";
+    categoryValue.value = "Transport";
   }
 }
 
@@ -187,6 +189,14 @@ function resetTask() {
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
+  padding-left: 15px;
+  margin-right: auto;
+}
+
+.price {
+  margin-right: auto;
+  text-align: left;
+  width: 60px;
 }
 
 .ticketInfo-category {
@@ -211,7 +221,7 @@ function resetTask() {
 
 [type="radio"]:checked,
 [type="radio"]:focus {
-  outline: 2px solid black;
+  border: 2px solid black;
 }
 
 .buttons-newtask {
@@ -230,5 +240,7 @@ function resetTask() {
 
 .checkedMsg {
   color: black;
+  text-align: center;
+  font-size: 15px;
 }
 </style>

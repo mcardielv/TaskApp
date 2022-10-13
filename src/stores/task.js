@@ -15,18 +15,6 @@ export const useTaskStore = defineStore("tasks", () => {
     return tasks.value;
   }
 
-  const tasksMaterials = ref([]);
-  async function fetchTasksMaterials() {
-    const { data: supaTasks } = await supabase
-      .from("tasks")
-      .select("*")
-      .order("id", { ascending: true })
-      .match({ category: 1 });
-
-    tasksMaterials.value = supaTasks;
-    return tasksMaterials.value;
-  }
-
   // New code
   async function addTask(title, description, category) {
     // call user.js to point specific user uuid at supabase.
@@ -75,7 +63,6 @@ export const useTaskStore = defineStore("tasks", () => {
   return {
     tasks,
     fetchTasks,
-    fetchTasksMaterials,
     addTask,
     deleteTask,
     completeTask,

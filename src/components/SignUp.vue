@@ -11,7 +11,7 @@
   </p>
   <form @submit.prevent="signUp">
     <label class="labelTag" for="">Email</label>
-    <div class="">
+    <div class="inputDiv">
       <input
         class="inputTag"
         type="email"
@@ -22,7 +22,7 @@
     </div>
     <hr />
     <label class="labelTag" for="">Password</label>
-    <div class="">
+    <div class="inputDiv">
       <input
         class="inputTag"
         type="password"
@@ -33,7 +33,7 @@
     </div>
 
     <label class="labelTag" for="">Confirm Password</label>
-    <div class="">
+    <div class="inputDiv">
       <input
         class="inputTag"
         type="password"
@@ -62,9 +62,10 @@ const buttonText = "Sign In";
 const email = ref(null);
 const password = ref(null);
 const confirmPassword = ref(null);
+// Error Message
 const errorMsg = ref(null);
 const errorMsg2 = ref(null);
-// Error Message
+
 // Show hide password variable
 // Show hide confrimPassword variable
 // Router to push user once SignedUp to Log In
@@ -72,22 +73,23 @@ const redirect = useRouter();
 // function to SignUp user to supaBase with a timeOut() method for showing the error
 async function signUp() {
   //first try add existing user error message
-  try {
-    await Supabase.instance.client.auth.signUp(email.value, password.value);
-    error = response.error;
-  } catch (error) {
-    if (error != null) {
-    } else error != null && email.value === null;
-  }
-  errorMsg2.value = "This user email already exists!";
-  setTimeout(() => {
-    errorMsg2.value = null;
-  }, 5000);
+  // try {
+  //   await Supabase.instance.client.auth.signUp(email.value, password.value);
+  //   error = response.error;
+  // } catch (error) {
+  //   if (error != null) {
+  //   } else error != null && email.value === null;
+
+  //   errorMsg2.value = "This user email already exists!";
+  //   setTimeout(() => {
+  //     errorMsg2.value = null;
+  //   }, 5000);
+  // }
   //second try to enter auth/login once signup completed with same password and confirm pass
   if (password.value === confirmPassword.value) {
     try {
       await useUserStore().signUp(email.value, password.value);
-      // if (error) throw error;
+      if (error) throw error;
       redirect.push({ path: "/auth/login" });
     } catch (error) {
       errorMsg.value = error.message;

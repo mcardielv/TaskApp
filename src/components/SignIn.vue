@@ -8,7 +8,7 @@
   </p>
   <form @submit.prevent="signIn">
     <label class="labelTag" for="">Email</label>
-    <div class="">
+    <div class="inputDiv">
       <input
         class="inputTag"
         type="email"
@@ -20,7 +20,7 @@
     <hr />
     <label class="labelTag" for="">Password</label>
     <div class="">
-      <div class="">
+      <div class="inputDiv">
         <input
           class="inputTag"
           :type="passwordFieldType"
@@ -103,5 +103,9 @@ const signIn = async () => {
 .errorMsg {
   text-align: center;
   color: red;
+  font-size: 15px;
+}
+.inputDiv {
+  padding-left: 15px;
 }
 </style>
