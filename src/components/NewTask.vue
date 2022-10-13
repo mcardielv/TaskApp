@@ -146,6 +146,8 @@ function categoriesName() {
   }
 }
 
+//function to limit number input
+
 //function reset task data after decide not to fill or filled with errors
 function resetTask() {
   title.value = "";
