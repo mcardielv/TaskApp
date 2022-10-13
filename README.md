@@ -114,6 +114,12 @@ Fix console errors while typing.
 
 Redirect sign up not working route
 
+## 13/10/2022
+CSS input form
+Filter category v-fors
+Buttons between components
+Sum function
+
 
 Vercel wip:
 ```
