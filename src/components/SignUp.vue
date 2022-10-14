@@ -1,5 +1,5 @@
 <template>
-  <div class="general-div">
+  <div class="general-div-log">
     <div class="signin-login">SIGN UP</div>
     <hr />
     <p class="welcome">Create your new account!</p>
@@ -91,7 +91,8 @@ async function signUp() {
   if (password.value === confirmPassword.value) {
     try {
       await useUserStore().signUp(email.value, password.value);
-      if (error) throw error;
+      // if (error) throw error;
+      errorMsg.value = "Sign Up sucessfully, redirecting";
       redirect.push({ path: "/auth/login" });
     } catch (error) {
       errorMsg.value = error.message;

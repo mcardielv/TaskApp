@@ -7,84 +7,94 @@
     @click="editEverything"
   /> -->
   <div class="general-div">
-    <div v-if="newTaskBool" class="responsive-task-lists">
-      <div class="materialsArray">
-        <h3 class="categoryTitle">Materials</h3>
-        <hr class="separator" />
-        <TaskItem
-          class="materialsArrayData"
-          v-for="myTask in taskArrayMaterials"
-          :key="myTask"
-          :task="myTask"
-          @deleteChild="deleteFather"
-          @completeChild="completeFather"
-          @uncompleteChild="uncompleteFather"
-          @editChild="editFather"
-        />
-      </div>
+    <transition name="slide-fade">
+      <div v-if="newTaskBoolChild" class="responsive-task-lists">
+        <div class="materialsArray">
+          <h3 class="categoryTitle">Materials</h3>
+          <hr class="separator" />
+          <TaskItem
+            class="materialsArrayData"
+            v-for="myTask in taskArrayMaterials"
+            :key="myTask"
+            :task="myTask"
+            @deleteChild="deleteFather"
+            @completeChild="completeFather"
+            @uncompleteChild="uncompleteFather"
+            @editChild="editFather"
+          />
+        </div>
 
-      <div class="restaurantsArray">
-        <h3 class="categoryTitle">Restaurants</h3>
-        <hr class="separator" />
-        <TaskItem
-          class="restaurantsArrayData"
-          v-for="myTask in taskArrayRestaurants"
-          :key="myTask"
-          :task="myTask"
-          @deleteChild="deleteFather"
-          @completeChild="completeFather"
-          @uncompleteChild="uncompleteFather"
-          @editChild="editFather"
-        />
-      </div>
+        <div class="restaurantsArray">
+          <h3 class="categoryTitle">Restaurants</h3>
+          <hr class="separator" />
+          <TaskItem
+            class="restaurantsArrayData"
+            v-for="myTask in taskArrayRestaurants"
+            :key="myTask"
+            :task="myTask"
+            @deleteChild="deleteFather"
+            @completeChild="completeFather"
+            @uncompleteChild="uncompleteFather"
+            @editChild="editFather"
+          />
+        </div>
 
-      <div class="supermarketArray">
-        <h3 class="categoryTitle">Supermarket</h3>
-        <hr class="separator" />
-        <TaskItem
-          class="supermarketArrayData"
-          v-for="myTask in taskArraySupermarkets"
-          :key="myTask"
-          :task="myTask"
-          @deleteChild="deleteFather"
-          @completeChild="completeFather"
-          @uncompleteChild="uncompleteFather"
-          @editChild="editFather"
-        />
-      </div>
+        <div class="supermarketArray">
+          <h3 class="categoryTitle">Supermarket</h3>
+          <hr class="separator" />
+          <TaskItem
+            class="supermarketArrayData"
+            v-for="myTask in taskArraySupermarkets"
+            :key="myTask"
+            :task="myTask"
+            @deleteChild="deleteFather"
+            @completeChild="completeFather"
+            @uncompleteChild="uncompleteFather"
+            @editChild="editFather"
+          />
+        </div>
 
-      <div class="transportsArray">
-        <h3 class="categoryTitle">Transport</h3>
-        <hr class="separator" />
-        <TaskItem
-          class="transportsArrayData"
-          v-for="myTask in taskArrayTransports"
-          :key="myTask"
-          :task="myTask"
-          @deleteChild="deleteFather"
-          @completeChild="completeFather"
-          @uncompleteChild="uncompleteFather"
-          @editChild="editFather"
-        />
+        <div class="transportsArray">
+          <h3 class="categoryTitle">Transport</h3>
+          <hr class="separator" />
+          <TaskItem
+            class="transportsArrayData"
+            v-for="myTask in taskArrayTransports"
+            :key="myTask"
+            :task="myTask"
+            @deleteChild="deleteFather"
+            @completeChild="completeFather"
+            @uncompleteChild="uncompleteFather"
+            @editChild="editFather"
+          />
+        </div>
       </div>
-    </div>
-    <div v-if="!newTaskBool" class="responsive-new-task">
-      <NewTask @childNewTask="addTask" />
-    </div>
+    </transition>
+    <transition name="slide-fade">
+      <div v-if="!newTaskBoolChild" class="responsive-new-task">
+        <NewTask @childNewTask="addTask" />
+      </div>
+    </transition>
   </div>
 
   <br />
   <br />
   <br />
   <div id="footer" class="navbar black">
-    <h2>TOTAL = {{ sumValues }}€</h2>
-    <button v-if="newTaskBool" class="footer-button" @click="newTaskSelect">
+    <h2 v-show="newTaskBoolChild">TOTAL = {{ sumValues }}€</h2>
+    <h2 class="black" v-show="!newTaskBoolChild">.</h2>
+    <button v-if="newTaskBoolChild" class="footer-button" @click="getBool">
       +
     </button>
+    <!-- <Button class="footer-button" @click="unGetBool"> x </Button> -->
+    <img
+      v-if="!newTaskBoolChild"
+      class="footer-button"
+      src="../assets/cross-white.svg"
+      @click="unGetBool"
+      id="buttons-newtask-input"
+    />
   </div>
-  <button v-if="!newTaskBool" class="footer-button" @click="newTaskDeSelect">
-    v
-  </button>
 
   <Footer />
 </template>
@@ -133,13 +143,15 @@ async function addTask(title, description, category) {
   fetchTasksNumber();
 }
 
-const newTaskBool = ref(true);
-//function to activate new task screen
-function newTaskSelect() {
-  newTaskBool.value = false;
+const newTaskBoolChild = ref(true);
+async function getBool() {
+  newTaskBoolChild.value = await useTasks.newTaskSelect();
+  console.log(newTaskBoolChild.value);
 }
-function newTaskDeSelect() {
-  newTaskBool.value = true;
+
+async function unGetBool() {
+  newTaskBoolChild.value = await useTasks.newTaskDeSelect();
+  console.log(newTaskBoolChild.value);
 }
 
 //3 functions to delete, mark as complete/uncomplete or update info
@@ -166,7 +178,7 @@ async function editFather(title, description, id) {
 }
 
 //function to sum values from all
-const sumValues = ref("");
+const sumValues = ref("0");
 const emits = defineEmits(["sumEmit"]);
 
 async function fetchTasksNumber() {
@@ -189,6 +201,9 @@ async function fetchTasksNumber() {
 } */
 .behind {
   position: sticky;
+}
+.black {
+  color: black;
 }
 .materialsArray {
   background-color: #fee99c;
@@ -223,7 +238,24 @@ async function fetchTasksNumber() {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+/* transitions */
+.slide-fade-enter-active {
+  transition: all 0.5s ease;
+}
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
 @media (min-width: 1025px) {
+  .general-div-log {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+  }
   .general-div {
     display: flex;
     flex-direction: row;

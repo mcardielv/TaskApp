@@ -1,5 +1,5 @@
 <template>
-  <div class="general-div">
+  <div class="general-div-log">
     <div class="signin-login">SIGN IN</div>
     <hr />
     <p class="welcome">Welcome back!</p>

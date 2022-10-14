@@ -15,7 +15,7 @@ import { ref } from "vue";
   bottom: 0px;
   right: 20px;
   font-size: 35px;
-  padding-bottom: 5px;
+  padding-bottom: 13px;
   color: white;
   border-style: none;
   background-color: transparent;
@@ -27,7 +27,7 @@ import { ref } from "vue";
   position: fixed;
   width: 100%;
   bottom: 0px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 </style>

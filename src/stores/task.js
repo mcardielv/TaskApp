@@ -60,6 +60,15 @@ export const useTaskStore = defineStore("tasks", () => {
       .match({ id: id });
   }
 
+  //function to save in store bool and activat/deactivate new task screen
+
+  function newTaskSelect() {
+    return false;
+  }
+  function newTaskDeSelect() {
+    return true;
+  }
+
   return {
     tasks,
     fetchTasks,
@@ -68,5 +77,7 @@ export const useTaskStore = defineStore("tasks", () => {
     completeTask,
     uncompleteTask,
     editTask,
+    newTaskSelect,
+    newTaskDeSelect,
   };
 });
