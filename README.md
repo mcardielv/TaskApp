@@ -121,6 +121,10 @@ Redirect sign up not working route
 - Sum function
 - Price in form limit decimals .01
 
+## 13/10/2022
+- Retouches CSS
+- Add transitions 
+- Prepare PPT
 
 Vercel wip:
 ```
