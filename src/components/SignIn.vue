@@ -1,50 +1,52 @@
 <template>
-  <div class="signin-login">SIGN IN</div>
-  <hr />
-  <p class="welcome">Welcome back!</p>
-
-  <p v-if="errorMsg" class="errorMsg">
-    {{ errorMsg }}
-  </p>
-  <form @submit.prevent="signIn">
-    <label class="labelTag" for="">Email</label>
-    <div class="inputDiv">
-      <input
-        class="inputTag"
-        type="email"
-        placeholder="name@email.com"
-        v-model="email"
-        id="email"
-      />
-    </div>
+  <div class="general-div">
+    <div class="signin-login">SIGN IN</div>
     <hr />
-    <label class="labelTag" for="">Password</label>
-    <div class="">
+    <p class="welcome">Welcome back!</p>
+
+    <p v-if="errorMsg" class="errorMsg">
+      {{ errorMsg }}
+    </p>
+    <form @submit.prevent="signIn">
+      <label class="labelTag" for="">Email</label>
       <div class="inputDiv">
         <input
           class="inputTag"
-          :type="passwordFieldType"
-          onpaste="return false"
-          placeholder="************"
-          v-model="password"
-          id="password"
+          type="email"
+          placeholder="name@email.com"
+          v-model="email"
+          id="email"
         />
-        <span class="">
-          <EyeIcon
-            :class="[passwordFieldIcon]"
-            @click.prevent="hidePassword = !hidePassword"
-          />
-        </span>
       </div>
-    </div>
+      <hr />
+      <label class="labelTag" for="">Password</label>
+      <div class="">
+        <div class="inputDiv">
+          <input
+            class="inputTag"
+            :type="passwordFieldType"
+            onpaste="return false"
+            placeholder="************"
+            v-model="password"
+            id="password"
+          />
+          <span class="">
+            <EyeIcon
+              :class="[passwordFieldIcon]"
+              @click.prevent="hidePassword = !hidePassword"
+            />
+          </span>
+        </div>
+      </div>
 
-    <button class="button" type="submit">SIGN IN</button>
-    <p class="welcome">
-      <span class="">Don’t have an account? </span>
+      <button class="button" type="submit">SIGN IN</button>
+      <p class="welcome">
+        <span class="">Don’t have an account? </span>
 
-      <PersonalRouter :route="route" :buttonText="buttonText" />
-    </p>
-  </form>
+        <PersonalRouter :route="route" :buttonText="buttonText" />
+      </p>
+    </form>
+  </div>
 </template>
 
 <script setup>
@@ -107,5 +109,7 @@ const signIn = async () => {
 }
 .inputDiv {
   padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 30px;
 }
 </style>

@@ -7,12 +7,12 @@
     <div class="logo">
       <h1 class="white logo-txt">ticketz</h1>
     </div>
-    <img
+    <!-- <img
       class="nav-button"
       src="../assets/edit_white.svg"
       id="button-edit"
       @click="editEverything"
-    />
+    /> -->
   </div>
 </template>
 
@@ -52,7 +52,8 @@ const routePath = ref(useRouter().currentRoute.value.path);
 
 <style>
 .nav-button {
-  position: absolute;
+  position: fixed;
+
   right: 15px;
   font-size: 35px;
   padding-top: 15px;

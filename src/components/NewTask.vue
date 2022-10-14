@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="signin-login" for="newTaskTitle">NEW TICKET</div>
     <div class="ticketInfo">
       <label class="labelTag" for="newTaskTitle">Ticket info:</label>
       <div class="labelTag">
@@ -19,7 +20,8 @@
       <label class="labelTag" for="">Price:</label>
       <div class="labelTag">
         <input
-          class="inputTag price"
+          class="inputTag-price"
+          step=".01"
           v-model="description"
           type="number"
           id="newTaskDesc"
@@ -34,12 +36,12 @@
     <div class="ticketInfo">
       <label class="labelTag" for="">Category:</label>
 
-      <p class="inputTag">{{ categoryValue }}</p>
+      <p class="labelTag">{{ categoryValue }}</p>
 
       <div class="ticketInfo-category">
         <label id="materials">
           <input
-            checked="checked"
+            checked
             class="pickedTag yellow"
             v-model="category"
             type="radio"
@@ -117,6 +119,7 @@ const category = ref("");
 //to start with a category defined info
 onMounted(() => {
   categoriesName();
+  resetTask();
 });
 
 // constant to save a variable that define the custom event that will be emitted to the homeView
@@ -140,7 +143,6 @@ function addTask() {
       errorBool.value = false;
     }, 3000);
   } else {
-    // description.value = description.value.toFixed(2);
     emits("childNewTask", title.value, description.value, category.value);
     resetTask();
     checkedBool.value = true;
@@ -173,7 +175,7 @@ function categoriesName() {
 function resetTask() {
   title.value = "";
   description.value = "";
-  // category.value = "1";
+  category.value = "1";
 }
 </script>
 
@@ -181,7 +183,7 @@ function resetTask() {
 .ticketInfo {
   display: flex;
   flex-direction: column;
-  padding-top: 15px;
+  /* padding-top: 15px; */
   padding-bottom: 15px;
 }
 
@@ -227,7 +229,7 @@ function resetTask() {
 .buttons-newtask {
   display: flex;
   justify-content: space-around;
-  margin: 50px 70px 50px 70px;
+  margin: 10px 70px 10px 70px;
   align-items: center;
 }
 .end-function {

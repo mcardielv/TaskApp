@@ -1,53 +1,55 @@
 <template>
-  <div class="signin-login">SIGN UP</div>
-  <hr />
-  <p class="welcome">Create your new account!</p>
-
-  <p v-if="errorMsg" class="errorMsg">
-    {{ errorMsg }}
-  </p>
-  <p v-if="errorMsg2" class="errorMsg">
-    {{ errorMsg2 }}
-  </p>
-  <form @submit.prevent="signUp">
-    <label class="labelTag" for="">Email</label>
-    <div class="inputDiv">
-      <input
-        class="inputTag"
-        type="email"
-        placeholder="name@email.com"
-        v-model="email"
-        id="email"
-      />
-    </div>
+  <div class="general-div">
+    <div class="signin-login">SIGN UP</div>
     <hr />
-    <label class="labelTag" for="">Password</label>
-    <div class="inputDiv">
-      <input
-        class="inputTag"
-        type="password"
-        placeholder="************"
-        v-model="password"
-        id="password"
-      />
-    </div>
+    <p class="welcome">Create your new account!</p>
 
-    <label class="labelTag" for="">Confirm Password</label>
-    <div class="inputDiv">
-      <input
-        class="inputTag"
-        type="password"
-        placeholder="************"
-        v-model="confirmPassword"
-        id="confirmPassword"
-      />
-    </div>
-    <button class="button" type="submit">SIGN UP</button>
-    <p class="welcome">
-      <span class="signin-login">Have an account? </span>
-      <PersonalRouter :route="route" :buttonText="buttonText" />
+    <p v-if="errorMsg" class="errorMsg">
+      {{ errorMsg }}
     </p>
-  </form>
+    <p v-if="errorMsg2" class="errorMsg">
+      {{ errorMsg2 }}
+    </p>
+    <form @submit.prevent="signUp">
+      <label class="labelTag" for="">Email</label>
+      <div class="inputDiv">
+        <input
+          class="inputTag"
+          type="email"
+          placeholder="name@email.com"
+          v-model="email"
+          id="email"
+        />
+      </div>
+      <hr />
+      <label class="labelTag" for="">Password</label>
+      <div class="inputDiv">
+        <input
+          class="inputTag"
+          type="password"
+          placeholder="************"
+          v-model="password"
+          id="password"
+        />
+      </div>
+
+      <label class="labelTag" for="">Confirm Password</label>
+      <div class="inputDiv">
+        <input
+          class="inputTag"
+          type="password"
+          placeholder="************"
+          v-model="confirmPassword"
+          id="confirmPassword"
+        />
+      </div>
+      <button class="button" type="submit">SIGN UP</button>
+      <p class="welcome">
+        <span class="signin-login">Have an account? </span>
+        <PersonalRouter :route="route" :buttonText="buttonText" />
+      </p>
+    </form>
+  </div>
 </template>
 
 <script setup>

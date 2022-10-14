@@ -25,7 +25,7 @@
 
 .navbar {
   display: flex;
-  position: static;
+  position: fixed;
   width: 100%;
 }
 
@@ -57,7 +57,7 @@ h4 {
   border: none;
   appearance: none;
   -webkit-appearance: none;
-  overflow-wrap: break-word;
+  /* overflow-wrap: break-word; */
   color: black;
   font-size: 18px;
   text-align: left;
@@ -84,10 +84,9 @@ h5 {
   color: black;
   font-size: 18px;
   text-align: right;
-  padding-left: 5px;
   margin-right: auto;
   margin-left: 0px;
-  max-width: 60px;
+  max-width: 65px;
 }
 
 .logo {
@@ -110,10 +109,22 @@ h5 {
 }
 
 .inputTag {
-  /* padding-left: 15px; */
-  padding-bottom: 20px;
   border: none;
+  /* width: 300px; */
+  height: 28px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 18px;
+  box-sizing: border-box;
+}
+.inputTag-price {
+  border: none;
+  width: 65px;
+  height: 28px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 18px;
+  box-sizing: border-box;
 }
 
 .signin-login {
@@ -146,8 +157,8 @@ form {
   text-align: center;
   background-color: black;
   padding: 15px 25px 15px 25px;
-  margin-top: 50px;
-  margin-bottom: 40px;
+  margin-top: 1px;
+  margin-bottom: 30px;
   color: white;
   font-size: 15px;
 }

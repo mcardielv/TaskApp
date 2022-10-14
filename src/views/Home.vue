@@ -1,7 +1,13 @@
 <template>
   <Nav />
+  <!-- <img
+    class="nav-button"
+    src="../assets/edit_white.svg"
+    id="button-edit"
+    @click="editEverything"
+  /> -->
   <div class="general-div">
-    <div v-if="!editFromNav" class="responsive-task-lists">
+    <div v-if="newTaskBool" class="responsive-task-lists">
       <div class="materialsArray">
         <h3 class="categoryTitle">Materials</h3>
         <hr class="separator" />
@@ -62,12 +68,24 @@
         />
       </div>
     </div>
-    <div class="responsive-new-task"><NewTask @childNewTask="addTask" /></div>
+    <div v-if="!newTaskBool" class="responsive-new-task">
+      <NewTask @childNewTask="addTask" />
+    </div>
   </div>
 
   <br />
   <br />
   <br />
+  <div id="footer" class="navbar black">
+    <h2>TOTAL = {{ sumValues }}€</h2>
+    <button v-if="newTaskBool" class="footer-button" @click="newTaskSelect">
+      +
+    </button>
+  </div>
+  <button v-if="!newTaskBool" class="footer-button" @click="newTaskDeSelect">
+    v
+  </button>
+
   <Footer />
 </template>
 
@@ -86,8 +104,6 @@ const taskArrayMaterials = ref([]);
 const taskArrayRestaurants = ref([]);
 const taskArraySupermarkets = ref([]);
 const taskArrayTransports = ref([]);
-
-const sumValues = ref([]);
 
 onMounted(() => {
   fetchTasksGeneral();
@@ -114,36 +130,63 @@ async function fetchTasksGeneral() {
 async function addTask(title, description, category) {
   await useTasks.addTask(title, description, category);
   fetchTasksGeneral();
+  fetchTasksNumber();
 }
+
+const newTaskBool = ref(true);
+//function to activate new task screen
+function newTaskSelect() {
+  newTaskBool.value = false;
+}
+function newTaskDeSelect() {
+  newTaskBool.value = true;
+}
+
 //3 functions to delete, mark as complete/uncomplete or update info
 async function deleteFather(taskId) {
   await useTasks.deleteTask(taskId);
   fetchTasksGeneral();
+  fetchTasksNumber();
 }
 
 async function completeFather(taskId) {
   await useTasks.completeTask(taskId);
   fetchTasksGeneral();
+  fetchTasksNumber();
 }
 async function uncompleteFather(taskId) {
   await useTasks.uncompleteTask(taskId);
   fetchTasksGeneral();
+  fetchTasksNumber();
 }
 async function editFather(title, description, id) {
   await useTasks.editTask(title, description, id);
   fetchTasksGeneral();
+  fetchTasksNumber();
 }
 
 //function to sum values from all
+const sumValues = ref("");
+const emits = defineEmits(["sumEmit"]);
+
 async function fetchTasksNumber() {
   sumValues.value = await useTasks.fetchTasks();
   sumValues.value = sumValues.value
+    .filter((task) => task.is_complete === false)
     .map((task) => task.description)
-    .reduce((previousValue, currentValue) => previousValue + currentValue);
+    .reduce((previousValue, currentValue) => previousValue + currentValue)
+    .toFixed(2);
+  emits("sumEmit", sumValues.value);
+  console.log(sumValues.value);
 }
 </script>
 
 <style>
+.general-div {
+  padding-top: 55px;
+}
+/* .responsive-new-task {
+} */
 .behind {
   position: sticky;
 }
@@ -203,6 +246,12 @@ async function fetchTasksNumber() {
     /* min-width: 500px; */
     margin-left: auto;
     margin-right: auto;
+  }
+  .h4 {
+    width: 100%;
+  }
+  .h5 {
+    width: 100%;
   }
 }
 </style>
