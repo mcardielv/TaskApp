@@ -18,7 +18,7 @@ For example depending on the task color can change, amount will go to a sum numb
 
 [x] Cards for tickets
 [x] Classify this cards by category
-[ ] Sum functions.
+[x] Sum functions.
 
 ```
 Future plans:
@@ -60,7 +60,7 @@ Tasks:
 
 [x] Navigation between components.
 [x] Pass information to parents to children tasks to main dashboard.
-[ ] Apply functions to sum values.
+[x] Apply functions to sum values.
 [x] Remove button logout from auth pages
 [x] If task completed, edit and delete not visible.
   
@@ -70,7 +70,7 @@ Tasks:
 [x] Mock-up
 [x] CSS Helper
 [x] Install fonts
-[ ] Inputs LogIn/SignUp css + errors
+[x] Inputs LogIn/SignUp css + errors
 [x] buttons settings (activate/deactivate edit, complete,delete svgs)
 [x] New task css radio
 
@@ -120,6 +120,12 @@ Redirect sign up not working route
 - Buttons between components
 - Sum function
 - Price in form limit decimals .01
+
+## 13/10/2022
+- Retouches CSS
+- Add transitions 
+- Improve
+- Prepare PPT
 
 
 Vercel wip:
