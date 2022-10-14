@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="signin-login" for="newTaskTitle">NEW TICKET</div>
+    <div class="new-task-top" for="newTaskTitle">NEW TICKET</div>
     <div class="ticketInfo">
       <label class="labelTag" for="newTaskTitle">Ticket info:</label>
       <div class="labelTag">
@@ -244,5 +244,10 @@ function resetTask() {
   color: black;
   text-align: center;
   font-size: 15px;
+}
+.new-task-top {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 </style>
